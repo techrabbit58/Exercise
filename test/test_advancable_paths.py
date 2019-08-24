@@ -4,7 +4,7 @@ import pytest
 from traversable_paths import *
 
 
-def test_none_path_gives_type_type_error():
+def test_none_path_gives_type_error():
     with pytest.raises(TypeError):
         is_traversable_path(None)
 
