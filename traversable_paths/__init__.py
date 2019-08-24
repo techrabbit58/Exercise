@@ -14,14 +14,15 @@ at least one step after its end.
 
 A path is not traversable, when there is no jump sequence available that leads beyond its end.
 """
+from typing import Iterable
 
 
-def is_traversable_path(path):
+def is_traversable_path(path: Iterable[int]) -> bool:
     """path must be a list of non-negative integers, including 0"""
-    if any([x for x in path if not isinstance(x, int) or x < 0]):
-        raise ValueError('argument must be a list of non-negative integers')
     advancement = 0
     for step, max_advance in enumerate(path):
+        if max_advance < 0:
+            raise ValueError('advancements may not be negative')
         if step > advancement:
             break
         advancement = max(advancement, step + max_advance)
