@@ -18,7 +18,7 @@ def test_positive_floats_in_path_are_ok():
     assert is_traversable_path([1.0, 1.3, 1.9])
 
 
-def test_negative_advances_gives_value_error():
+def test_negative_advance_is_value_error():
     with pytest.raises(ValueError):
         is_traversable_path([-1, 2, 3])
     with pytest.raises(ValueError):
