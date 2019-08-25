@@ -55,7 +55,7 @@ class SumOfTwo:
 
         The worst case time complexity of this approach is O(n).
 
-        This approach requires more code than the others, and may be ost difficult to
+        This approach requires more code than the others, and may be most difficult to
         understand.
         """
         numbers = self.numbers
