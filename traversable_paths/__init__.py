@@ -14,10 +14,9 @@ at least one step after its end.
 
 A path is not traversable, when there is no jump sequence available that leads beyond its end.
 """
-from typing import Iterable
 
 
-def is_traversable_path(path: Iterable[int]) -> bool:
+def is_traversable_path(path: list[int]) -> bool:
     """path must be a list of non-negative integers, including 0"""
     advancement = 0
     for step, max_advance in enumerate(path):

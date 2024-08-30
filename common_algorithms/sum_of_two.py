@@ -5,7 +5,7 @@ Given a list of integral numbers, positive or negative, including 0, and another
 
 The list shall be sorted in ascending order, before doing the check.
 
-Start with the naive solution (i.e. check all possible combinations), and at least one faster
+Start with the naive solution (i.e., check all possible combinations), and at least one faster
 approach.
 """
 from itertools import combinations
@@ -15,9 +15,9 @@ from typing import Iterable
 
 class SumOfTwo:
 
-    def __init__(self, numbers: Iterable[Integral], target: Integral) -> None:
-        self.numbers = sorted(numbers)
-        self.target = target
+    def __init__(self, nums: Iterable[Integral], goal: Integral) -> None:
+        self.numbers = sorted(nums)
+        self.target = goal
 
     def __str__(self):
         return 'check if {} is in {}'.format(self.target, self.numbers)
@@ -31,12 +31,13 @@ class SumOfTwo:
 
     def memoizing(self) -> bool:
         """Strategy: we remember number minus target for each number seen.
-        If the number we see is already in the differences memory, we have found one solution.
-        Since the first solution we find do the trick, we are done. If we do not find a
-        solution, and there are no numbers left, we know we are done with target not feasible.
+        If the number we see is already in the different memory, we have found one solution.
+        Since the first solution we find do the trick, we've been done.
+        If we do not find a
+        solution, and there are no numbers left, we know we are done with target not possible.
 
-        This solution has worst case time complexity of O(n), and may worst case double the
-        memory usage, because of the memo set.
+        This solution has the worst case time complexity of O(n), and may the worst case double the
+        memory usage because of the memo set.
         """
         memory = set()
         for x in self.numbers:
@@ -55,20 +56,20 @@ class SumOfTwo:
 
         The worst case time complexity of this approach is O(n).
 
-        This approach requires more code than the others, and may be most difficult to
+        This approach requires more code than the others, and may be most challenging to
         understand.
         """
-        numbers = self.numbers
-        target = self.target
+        nums = self.numbers
+        goal = self.target
         low = 0
-        high = len(numbers) - 1
+        high = len(nums) - 1
         while low < high:
-            x = numbers[low] + numbers[high]
-            if target == x:
+            x = nums[low] + nums[high]
+            if goal == x:
                 return True
             else:
-                low += 1 if target > x else 0
-                high -= 1 if target < x else 0
+                low += 1 if goal > x else 0
+                high -= 1 if goal < x else 0
         return False
 
 
